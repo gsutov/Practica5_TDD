@@ -15,3 +15,6 @@ def test_estandar_7kg_cuesta_70():
 
 def test_express_paquete_pequeno_cuesta_100():
     assert calcular_envio(3, "express") == 100
+
+def test_express_paquete_pesado_cuesta_140():
+    assert calcular_envio(7, "express") == 140
