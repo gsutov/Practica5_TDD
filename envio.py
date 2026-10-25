@@ -2,6 +2,18 @@ limite_de_peso = 5
 costo_base = 50
 costo_extra = 10
 
+def calcular_envio_estandar(peso):
+    costo = costo_base
+    if peso > limite_de_peso:
+        costo += costo_extra * (peso - limite_de_peso)
+    return costo
+
+def calcular_envio_express(peso):
+    costo = costo_base
+    if peso > limite_de_peso:
+        costo += costo_extra * (peso - limite_de_peso)
+    return costo * 2
+
 def calcular_envio(peso, tipo):
     # Validaciones
     if peso <= 0:
@@ -9,9 +21,7 @@ def calcular_envio(peso, tipo):
     if tipo not in ["estandar", "express"]:
         raise ValueError("Tipo de envío inválido")
     
-    costo = costo_base
-    if peso > limite_de_peso:
-        costo += costo_extra * (peso - limite_de_peso)
-    if tipo == "express":
-        costo *= 2
-    return costo
+    if tipo == "estandar":
+        return calcular_envio_estandar(peso)
+    elif tipo == "express":
+        return calcular_envio_express(peso)
