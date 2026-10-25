@@ -18,3 +18,11 @@ def test_express_paquete_pequeno_cuesta_100():
 
 def test_express_paquete_pesado_cuesta_140():
     assert calcular_envio(7, "express") == 140
+
+def test_express_0kg ():
+    with pytest.raises(ValueError):
+        calcular_envio(0, "express")
+
+def test_express_peso_negativo ():
+    with pytest.raises(ValueError):
+        calcular_envio(-3, "express")
