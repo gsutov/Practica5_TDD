@@ -35,3 +35,7 @@ def test_peso_negativo ():
 def test_tipo_envio_invalido():
     with pytest.raises(ValueError):
         calcular_envio(3, "batman")
+
+# test extra
+def test_express_5kg_cuesta_100():
+    assert calcular_envio(5, "express") == 100
